@@ -41,6 +41,35 @@ function exists(filename)
     end
  end
  
+function print_top_header(length)
+	io.write(BOLD_YELLOW_COLOR..'  ╭');
+
+	local i = 0
+
+	while i ~= length do
+		io.write('───');
+
+		i = i + 1;
+	end
+
+	io.write('╮\n '..' │ '..RESET);
+end
+
+function print_bottom_header(length)
+	io.write(BOLD_LIGHT_CYAN_COLOR..'  ╰');
+
+	local i = 0
+
+	while i ~= length do
+		io.write('───');
+
+		i = i + 1;
+	end
+
+	io.write('╯\n'..RESET);
+end
+
+
 function regular(line)
 	line = line:gsub('int ', BOLD_BLUE_COLOR..'int '..BOLD_LIGHT_WHITE_COLOR);
 	line = line:gsub('char ', BOLD_BLUE_COLOR..'char '..BOLD_LIGHT_WHITE_COLOR);
@@ -154,5 +183,14 @@ end
 if exists(arg[1]) == false then
     os.exit(1);
 end
+
+print_top_header(10);
+
+if arg[1]:match('^.+(%..+)$') == '.cpp' then
+	print('C++')		
+end
+
+print_bottom_header(10);
+
 
 read_file(arg[1]);
