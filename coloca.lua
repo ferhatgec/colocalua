@@ -170,6 +170,10 @@ function c_plus_plus(line)
 end
 
 function flascript(line)
+	if (string.sub(line, 1, 1) == '/' and string.sub(line, 2, 2) == '/') then
+        line = BOLD_LIGHT_BLACK_COLOR..line..BOLD_LIGHT_WHITE_COLOR;
+    end
+
 	line = line:gsub('print',  BOLD_CYAN_COLOR..'print'..BOLD_LIGHT_WHITE_COLOR);
 	line = line:gsub('fprintf',  BOLD_CYAN_COLOR..'fprintf'..BOLD_LIGHT_WHITE_COLOR);
 	line = line:gsub('@echo',  BOLD_CYAN_COLOR..'@echo'..BOLD_LIGHT_WHITE_COLOR);
@@ -219,10 +223,40 @@ function flascript(line)
 	print(line)
 end
 
+function python(line)
+	if string.sub(line, 1, 1) == '#' then
+        line = BOLD_LIGHT_BLACK_COLOR..line..BOLD_LIGHT_WHITE_COLOR;
+    end
+
+	line = line:gsub('if',  BOLD_LIGHT_RED_COLOR..'if'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('else',  BOLD_LIGHT_RED_COLOR..'else'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('elif',  BOLD_LIGHT_RED_COLOR..'elif'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('for',  BOLD_MAGENTA_COLOR..'for'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('while',  BOLD_MAGENTA_COLOR..'while'..BOLD_LIGHT_WHITE_COLOR);
+
+	line = line:gsub('str', BOLD_BLUE_COLOR..'str'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('bool', BOLD_BLUE_COLOR..'bool'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('float', BOLD_BLUE_COLOR..'float'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('def',  BOLD_RED_COLOR..'def'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('lambda',  BOLD_RED_COLOR..'lambda'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('import',  BOLD_YELLOW_COLOR..'import'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('from',  BOLD_LIGHT_YELLOW_COLOR..'from'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('global',  BOLD_LIGHT_BLUE_COLOR..'global'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('return',  BOLD_LIGHT_MAGENTA_COLOR..'return'..BOLD_LIGHT_WHITE_COLOR);
+		
+	line = line:gsub('print',  BOLD_CYAN_COLOR..'print'..BOLD_LIGHT_WHITE_COLOR);
+	
+	print(line)
+end
+
 function read_file(filename)
     extension = filename:match('^.+(%..+)$')
 	
-
 	if (extension == '.cpp' 
 	or extension == '.hpp'
 	or extension == '.cc'
@@ -235,6 +269,10 @@ function read_file(filename)
 	elseif (extension == '.fls' or extension == '.flsh') then
 		for line in io.lines(filename) do
 			flascript(line);
+        end
+	elseif extension == '.py' then
+		for line in io.lines(filename) do
+			python(line);
         end
 	else
 		for line in io.lines(filename) do
@@ -260,6 +298,8 @@ or extension == '.cxx') then
 	header_text(arg[1], 'C++');
 elseif (extension == '.fls' or extension == '.flsh') then
 	header_text(arg[1], 'FlaScript');
+elseif extension == '.py' then
+	header_text(arg[1], 'Python');
 else
 	header_text(arg[1], 'Regular');
 end
