@@ -69,6 +69,9 @@ function print_bottom_header(length)
 	io.write('╯\n'..RESET);
 end
 
+function header_text(text, language)
+	print('🔒 '..BOLD_LIGHT_MAGENTA_COLOR..text..' | '..BOLD_LIGHT_RED_COLOR..language..RESET);
+end
 
 function regular(line)
 	line = line:gsub('int ', BOLD_BLUE_COLOR..'int '..BOLD_LIGHT_WHITE_COLOR);
@@ -187,7 +190,7 @@ end
 print_top_header(10);
 
 if arg[1]:match('^.+(%..+)$') == '.cpp' then
-	print('C++')		
+	header_text(arg[1], 'C++');		
 end
 
 print_bottom_header(10);
