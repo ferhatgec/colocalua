@@ -386,6 +386,40 @@ function html(line)
 	print(line)
 end
 
+function javascript(filename)
+	if (string.sub(line, 1, 1) == '/' and string.sub(line, 2, 2) == '/') then
+        line = BOLD_LIGHT_BLACK_COLOR..line..BOLD_LIGHT_WHITE_COLOR;
+    end
+
+	line = line:gsub('var ', BOLD_BLUE_COLOR..'var '..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('const ', BOLD_BLUE_COLOR..'const '..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('let ', BOLD_BLUE_COLOR..'let '..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('new', BOLD_BLUE_COLOR..'new'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('function', BOLD_RED_COLOR..'function'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('for', BOLD_RED_COLOR..'for'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('while', BOLD_RED_COLOR..'while'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('do', BOLD_RED_COLOR..'do'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('break', BOLD_BLUE_COLOR..'break'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('return', BOLD_BLUE_COLOR..'return'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('continue', BOLD_BLUE_COLOR..'continue'..BOLD_LIGHT_WHITE_COLOR);
+
+	line = line:gsub('if', BOLD_CYAN_COLOR..'if'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('else', BOLD_CYAN_COLOR..'else'..BOLD_LIGHT_WHITE_COLOR);
+
+	line = line:gsub('console', BOLD_CYAN_COLOR..'console'..BOLD_LIGHT_WHITE_COLOR);
+
+	line = line:gsub('switch', BOLD_CYAN_COLOR..'switch'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('case', BOLD_CYAN_COLOR..'case'..BOLD_LIGHT_WHITE_COLOR);
+
+	line = line:gsub('try', BOLD_RED_COLOR..'try'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('catch', BOLD_RED_COLOR..'catch'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('throw', BOLD_RED_COLOR..'throw'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('finally', BOLD_RED_COLOR..'finally'..BOLD_LIGHT_WHITE_COLOR);
+
+	print(line)
+end
+
 function read_file(filename)
     extension = filename:match('^.+(%..+)$')
 	
@@ -409,6 +443,10 @@ function read_file(filename)
 	elseif (extension == '.htm' or extension == '.html') then
 		for line in io.lines(filename) do
 			html(line);
+		end
+	elseif extension == '.js' then
+		for line in io.lines(filename) do
+			javascript(line);
 		end
 	else
 		for line in io.lines(filename) do
@@ -438,6 +476,8 @@ elseif extension == '.py' then
 	header_text(arg[1], 'Python');
 elseif (extension == '.htm' or extension == '.html') then
 	header_text(arg[1], 'HTML');
+elseif extension == '.js' then
+	header_text(arg[1], 'JavaScript');
 else
 	header_text(arg[1], 'Regular');
 end
