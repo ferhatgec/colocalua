@@ -254,6 +254,138 @@ function python(line)
 	print(line)
 end
 
+function html(line)
+	line = line:gsub('html', BOLD_CYAN_COLOR..'html'..BOLD_LIGHT_WHITE_COLOR);
+
+	line = line:gsub('!DOCTYPE', BOLD_BLUE_COLOR..'!DOCTYPE'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('abbr', BOLD_CYAN_COLOR..'abbr'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('acronym', BOLD_CYAN_COLOR..'acronym'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('address', BOLD_CYAN_COLOR..'address'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('applet', BOLD_CYAN_COLOR..'applet'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('area', BOLD_CYAN_COLOR..'area'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('article', BOLD_CYAN_COLOR..'article'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('aside', BOLD_CYAN_COLOR..'aside'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('audio', BOLD_CYAN_COLOR..'audio'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('base', BOLD_CYAN_COLOR..'base'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('basefont', BOLD_CYAN_COLOR..'basefont'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('bb', BOLD_CYAN_COLOR..'bb'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('bdo', BOLD_CYAN_COLOR..'bdo'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('big', BOLD_CYAN_COLOR..'big'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('blockquote', BOLD_CYAN_COLOR..'blockquote'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('body', BOLD_CYAN_COLOR..'body'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('br', BOLD_CYAN_COLOR..'br'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('button', BOLD_CYAN_COLOR..'button'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('canvas', BOLD_CYAN_COLOR..'canvas'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('caption', BOLD_CYAN_COLOR..'caption'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('center', BOLD_CYAN_COLOR..'center'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('cite', BOLD_CYAN_COLOR..'cite'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('code', BOLD_CYAN_COLOR..'code'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('col', BOLD_CYAN_COLOR..'col'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('colgroup', BOLD_CYAN_COLOR..'colgroup'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('command', BOLD_CYAN_COLOR..'command'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('datagrid', BOLD_CYAN_COLOR..'datagrid'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('datalist', BOLD_CYAN_COLOR..'datalist'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('dd', BOLD_CYAN_COLOR..'dd'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('del', BOLD_CYAN_COLOR..'del'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('details', BOLD_CYAN_COLOR..'details'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('dfn', BOLD_CYAN_COLOR..'dfn'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('dialog', BOLD_CYAN_COLOR..'dialog'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('dir', BOLD_CYAN_COLOR..'dir'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('div', BOLD_CYAN_COLOR..'div'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('dl', BOLD_CYAN_COLOR..'dl'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('dt', BOLD_CYAN_COLOR..'dt'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('em', BOLD_CYAN_COLOR..'em'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('embed', BOLD_CYAN_COLOR..'embed'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('eventsource', BOLD_CYAN_COLOR..'eventsource'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('fieldset', BOLD_CYAN_COLOR..'fieldset'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('figcaption', BOLD_CYAN_COLOR..'figcaption'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('figure', BOLD_CYAN_COLOR..'figure'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('font', BOLD_CYAN_COLOR..'font'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('footer', BOLD_CYAN_COLOR..'footer'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('form', BOLD_CYAN_COLOR..'form'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('frame', BOLD_CYAN_COLOR..'frame'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('frameset', BOLD_CYAN_COLOR..'frameset'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('h1', BOLD_CYAN_COLOR..'h1'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('h2', BOLD_CYAN_COLOR..'h2'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('h3', BOLD_CYAN_COLOR..'h3'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('h4', BOLD_CYAN_COLOR..'h4'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('h5', BOLD_CYAN_COLOR..'h5'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('h6', BOLD_CYAN_COLOR..'h6'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('head', BOLD_CYAN_COLOR..'head'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('header', BOLD_CYAN_COLOR..'header'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('hgroup', BOLD_CYAN_COLOR..'hgroup'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('hr', BOLD_CYAN_COLOR..'hr'..BOLD_LIGHT_WHITE_COLOR);
+
+	line = line:gsub('iframe', BOLD_CYAN_COLOR..'iframe'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('img', BOLD_CYAN_COLOR..'img'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('input', BOLD_CYAN_COLOR..'input'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('ins', BOLD_CYAN_COLOR..'ins'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('isindex', BOLD_CYAN_COLOR..'isindex'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('kbd', BOLD_CYAN_COLOR..'kbd'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('keygen', BOLD_CYAN_COLOR..'keygen'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('label', BOLD_CYAN_COLOR..'label'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('legend', BOLD_CYAN_COLOR..'legend'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('li', BOLD_CYAN_COLOR..'li'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('link', BOLD_CYAN_COLOR..'link'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('map', BOLD_CYAN_COLOR..'map'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('mark', BOLD_CYAN_COLOR..'mark'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('menu', BOLD_CYAN_COLOR..'menu'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('meta', BOLD_CYAN_COLOR..'meta'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('meter', BOLD_CYAN_COLOR..'meter'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('nav', BOLD_CYAN_COLOR..'nav'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('noframes', BOLD_CYAN_COLOR..'noframes'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('noscript', BOLD_CYAN_COLOR..'noscript'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('object', BOLD_CYAN_COLOR..'object'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('ol', BOLD_CYAN_COLOR..'ol'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('optgroup', BOLD_CYAN_COLOR..'optgroup'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('option', BOLD_CYAN_COLOR..'option'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('output', BOLD_CYAN_COLOR..'output'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('p', BOLD_CYAN_COLOR..'p'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('param', BOLD_CYAN_COLOR..'param'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('pre', BOLD_CYAN_COLOR..'pre'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('progress', BOLD_CYAN_COLOR..'progress'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('q', BOLD_CYAN_COLOR..'q'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('rp', BOLD_CYAN_COLOR..'rp'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('rt', BOLD_CYAN_COLOR..'rt'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('ruby', BOLD_CYAN_COLOR..'ruby'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('script', BOLD_CYAN_COLOR..'script'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('samp', BOLD_CYAN_COLOR..'samp'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('section', BOLD_CYAN_COLOR..'section'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('select', BOLD_CYAN_COLOR..'select'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('small', BOLD_CYAN_COLOR..'small'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('source', BOLD_CYAN_COLOR..'source'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('span', BOLD_CYAN_COLOR..'span'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('strike', BOLD_CYAN_COLOR..'strike'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('strong', BOLD_CYAN_COLOR..'strong'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('style', BOLD_CYAN_COLOR..'style'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('sub', BOLD_CYAN_COLOR..'sub'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('sup', BOLD_CYAN_COLOR..'sup'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('table', BOLD_CYAN_COLOR..'table'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('tbody', BOLD_CYAN_COLOR..'tbody'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('tfoot', BOLD_CYAN_COLOR..'tfoot'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('th', BOLD_CYAN_COLOR..'th'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('thead', BOLD_CYAN_COLOR..'thead'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('time', BOLD_CYAN_COLOR..'time'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('title', BOLD_CYAN_COLOR..'title'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('tr', BOLD_CYAN_COLOR..'tr'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('track', BOLD_CYAN_COLOR..'track'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('tt', BOLD_CYAN_COLOR..'tt'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('u', BOLD_CYAN_COLOR..'u'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('ul', BOLD_CYAN_COLOR..'ul'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('var', BOLD_CYAN_COLOR..'var'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('video', BOLD_CYAN_COLOR..'video'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('wbr', BOLD_CYAN_COLOR..'wbr'..BOLD_LIGHT_WHITE_COLOR);
+
+	line = line:gsub('class', BOLD_CYAN_COLOR..'class'..BOLD_LIGHT_WHITE_COLOR);
+
+	line = line:gsub('/', BOLD_YELLOW_COLOR..'/'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('<', BOLD_YELLOW_COLOR..'<'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('>', BOLD_YELLOW_COLOR..'>'..BOLD_LIGHT_WHITE_COLOR);
+
+	print(line)
+end
+
 function read_file(filename)
     extension = filename:match('^.+(%..+)$')
 	
@@ -274,6 +406,10 @@ function read_file(filename)
 		for line in io.lines(filename) do
 			python(line);
         end
+	elseif (extension == '.htm' or extension == '.html') then
+		for line in io.lines(filename) do
+			html(line);
+		end
 	else
 		for line in io.lines(filename) do
 			regular(line);
@@ -300,6 +436,8 @@ elseif (extension == '.fls' or extension == '.flsh') then
 	header_text(arg[1], 'FlaScript');
 elseif extension == '.py' then
 	header_text(arg[1], 'Python');
+elseif (extension == '.htm' or extension == '.html') then
+	header_text(arg[1], 'HTML');
 else
 	header_text(arg[1], 'Regular');
 end
