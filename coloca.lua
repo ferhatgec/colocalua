@@ -191,6 +191,8 @@ print_top_header(10);
 
 if arg[1]:match('^.+(%..+)$') == '.cpp' then
 	header_text(arg[1], 'C++');		
+else
+	header_text(arg[1], 'Regular')
 end
 
 print_bottom_header(10);
