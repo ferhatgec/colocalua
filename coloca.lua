@@ -41,6 +41,15 @@ function exists(filename)
     end
  end
  
+function regular(line)
+	line = line:gsub('int ', BOLD_BLUE_COLOR..'int '..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('char ', BOLD_BLUE_COLOR..'char '..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('const ',  BOLD_LIGHT_BLUE_COLOR..'const '..BOLD_LIGHT_WHITE_COLOR);			
+	line = line:gsub('void ',  BOLD_RED_COLOR..'void '..BOLD_LIGHT_WHITE_COLOR);
+
+	print(line);
+end
+
 function c_plus_plus(line)
     if (string.sub(line, 1, 1) == '/' and string.sub(line, 2, 2) == '/') then
         line = BOLD_LIGHT_BLACK_COLOR..line..BOLD_LIGHT_WHITE_COLOR;
@@ -137,7 +146,7 @@ function read_file(filename)
         end
     else
         for line in io.lines(filename) do
-            print(BOLD_LIGHT_WHITE_COLOR..line); 
+			regular(line);
         end
     end
 end
