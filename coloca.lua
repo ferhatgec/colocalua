@@ -1,5 +1,10 @@
 #!/usr/bin/env lua
 
+-- MIT License
+--
+-- Copyright (c) 2021 Ferhat Geçdoğan All Rights Reserved.
+-- Distributed under the terms of the MIT License.
+--
 
 if (#arg < 1) then
     print('Colocalua - Lua implementation of ColoCat\n'..arg[0]..' {file}')
