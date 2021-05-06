@@ -30,7 +30,7 @@ local BOLD_LIGHT_WHITE_COLOR  = '\x1b[1;97m'
 local RESET                   = '\x1b[0m'
 
 function exists(filename)
-    local f = io.open(filename,"r")
+    local f = io.open(filename,'r')
     
     if f~=nil then 
         io.close(f) 
@@ -169,18 +169,78 @@ function c_plus_plus(line)
     print(line);
 end
 
+function flascript(line)
+	line = line:gsub('print',  BOLD_CYAN_COLOR..'print'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('fprintf',  BOLD_CYAN_COLOR..'fprintf'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('@echo',  BOLD_CYAN_COLOR..'@echo'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('fprintln',  BOLD_CYAN_COLOR..'fprintln'..BOLD_LIGHT_WHITE_COLOR);
+
+    line = line:gsub('@append',  BOLD_LIGHT_YELLOW_COLOR..'@append'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('@pop_back',  BOLD_LIGHT_YELLOW_COLOR..'@pop_back'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('@between',  BOLD_LIGHT_YELLOW_COLOR..'@between'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('@escape_seq',  BOLD_LIGHT_YELLOW_COLOR..'@escape_seq'..BOLD_LIGHT_WHITE_COLOR);
+	
+    line = line:gsub('@input',  BOLD_LIGHT_YELLOW_COLOR..'@input'..BOLD_LIGHT_WHITE_COLOR);
+	
+	
+    line = line:gsub('var ', BOLD_BLUE_COLOR..'var '..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('bool', BOLD_LIGHT_BLUE_COLOR..'bool'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('int',  BOLD_LIGHT_BLUE_COLOR..'int'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('string',  BOLD_LIGHT_BLUE_COLOR..'string'..BOLD_LIGHT_WHITE_COLOR);
+
+    line = line:gsub('put',  BOLD_MAGENTA_COLOR..'put'..BOLD_LIGHT_WHITE_COLOR);
+    
+	line = line:gsub('if',  BOLD_LIGHT_RED_COLOR..'if'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('else',  BOLD_LIGHT_RED_COLOR..'else'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('for',  BOLD_MAGENTA_COLOR..'for'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('do',  BOLD_MAGENTA_COLOR..'do'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('while',  BOLD_MAGENTA_COLOR..'while'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('func',  BOLD_RED_COLOR..'void'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('main',  BOLD_LIGHT_RED_COLOR..'main'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('import',  BOLD_YELLOW_COLOR..'import'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('defin',  BOLD_MAGENTA_COLOR..'defin'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('#ifdef',  BOLD_MAGENTA_COLOR..'#ifdef'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('#endif',  BOLD_MAGENTA_COLOR..'#endif'..BOLD_LIGHT_WHITE_COLOR);
+	
+	line = line:gsub('return',  BOLD_LIGHT_MAGENTA_COLOR..'return'..BOLD_LIGHT_WHITE_COLOR);
+	
+	
+	line = line:gsub('SystemInfo',  BOLD_LIGHT_MAGENTA_COLOR..'SystemInfo'..BOLD_LIGHT_WHITE_COLOR);
+	line = line:gsub('Colorized',  BOLD_LIGHT_MAGENTA_COLOR..'Colorized'..BOLD_LIGHT_WHITE_COLOR);
+		
+	line = line:gsub('newline',  BOLD_LIGHT_BLACK_COLOR..'newline'..BOLD_LIGHT_WHITE_COLOR);
+
+	print(line)
+end
+
 function read_file(filename)
     extension = filename:match('^.+(%..+)$')
-    
-    if extension == '.cpp' then
-        for line in io.lines(filename) do
+	
+
+	if (extension == '.cpp' 
+	or extension == '.hpp'
+	or extension == '.cc'
+	or extension == '.hh'
+	or extension == '.hxx'
+	or extension == '.cxx') then
+		for line in io.lines(filename) do
             c_plus_plus(line); 
         end
-    else
-        for line in io.lines(filename) do
+	elseif (extension == '.fls' or extension == '.flsh') then
+		for line in io.lines(filename) do
+			flascript(line);
+        end
+	else
+		for line in io.lines(filename) do
 			regular(line);
         end
-    end
+	end
 end
 
 if exists(arg[1]) == false then
@@ -189,10 +249,19 @@ end
 
 print_top_header(10);
 
-if arg[1]:match('^.+(%..+)$') == '.cpp' then
-	header_text(arg[1], 'C++');		
+local extension = arg[1]:match('^.+(%..+)$')
+
+if (extension == '.cpp' 
+or extension == '.hpp'
+or extension == '.cc'
+or extension == '.hh'
+or extension == '.hxx'
+or extension == '.cxx') then
+	header_text(arg[1], 'C++');
+elseif (extension == '.fls' or extension == '.flsh') then
+	header_text(arg[1], 'FlaScript');
 else
-	header_text(arg[1], 'Regular')
+	header_text(arg[1], 'Regular');
 end
 
 print_bottom_header(10);
